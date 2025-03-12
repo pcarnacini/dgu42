@@ -8,7 +8,7 @@ import time
 df = pd.read_csv('csv/stgBancoVDE.csv', low_memory=False)
 
 # Remove colunas desnecessárias (se existirem)
-colunas_para_remover = ['agente', 'arma', 'faixa_etaria', 'nao_informado', 'total_peso', 'abrangencia', 'formulario']
+colunas_para_remover = ['agente', 'arma', 'faixa_etaria', 'nao_informado', 'total_peso', 'abrangencia', 'formulario','total']
 df = df.drop(columns=[col for col in colunas_para_remover if col in df.columns], errors='ignore')
 
 # Converte a data e extrai ano, mês e dia da semana

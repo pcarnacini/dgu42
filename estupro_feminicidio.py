@@ -1,14 +1,16 @@
 import pandas as pd
-import os
 
-# Lê o csv que está na pasta csv/
+# Lê o CSV da pasta csv/
 df = pd.read_csv('csv/dados_limpos.csv')
 
-# Filtra apenas por estupro, feminicídio, homicídio doloso
-df = df[df['evento'].isin(['Estupro', 'FEMINICÍDIO', 'HOMICÍDIO DOLOSO'])]
+# Converte a coluna 'feminino' para numérico, forçando valores inválidos para NaN
+df['feminino'] = pd.to_numeric(df['feminino'], errors='coerce')
 
-# Remove todos os registros em 'HOMICÍDIO DOLOSO' que 'feminino' é 0, nulo ou vazio
-df = df[(df['evento'] == 'HOMICÍDIO DOLOSO') & (df['feminino'].isna() | (df['feminino'] == 0) | (df['feminino'] == ' '))]
+# Filtra apenas por estupro, feminicídio e homicídio doloso
+df = df[df['evento'].isin(['Estupro', 'Feminicídio', 'Homicídio doloso'])]
+
+# Remove todas as linhas onde 'feminino' é nulo, zero ou vazio
+df = df[~((df['feminino'].isna()) | (df['feminino'] == 0) | (df['feminino'] == ''))]
 
 # Salvando o DataFrame em um novo arquivo CSV
 df.to_csv('csv/dados_estupro_feminicidio.csv', index=False)
