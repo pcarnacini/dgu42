@@ -10,7 +10,7 @@ Qual é a média de vítimas por evento criminoso?
 
 Qual a proporção de vítimas femininas em relação ao total de crimes?
 
-Como a incidência de feminicídio, estupro e homicídio doloso evoluiu ao longo do tempo?
+Quanto a incidência de feminicídio, estupro e homicídio doloso evoluiu ao longo do tempo?
 
 Existem padrões sazonais ou regiões com maior incidência desses crimes?
 
